@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assessment 1 - Image Mapper</title>
+    <link rel="stylesheet" href="site.css" />
+  </head>
+
+  <body>
+    <main id="main">
+      <h1 id="title">Image Mapper</h1>
+
+      <section id="image-mapper-container" class="image-mapper-container">
+        <label id="upload-image-button-label" for="upload-image-button">
+          <div>
+            <h5>Upload an image to map points.</h5>
+            <h6>JPEG, PNG, WEBP, SVG and GIF formats are allowed.</h6>
+            <h6 id="upload-image-invalid-file-error" class="error">
+              Invalid format selected. Please select one of the above formats.
+            </h6>
+          </div>
+        </label>
+        <input
+          type="file"
+          name="uploadImageButton"
+          id="upload-image-button"
+          accept="image/jpeg,image/png,image/gif,image/webp,image/svg+xml"
+          hidden
+        />
+
+        <section id="image-display-main">
+          <section id="image-display-container">
+            <svg id="image-display-map">
+              <image id="image-display" href="" />
+              <defs>
+                <filter x="-0.05" y="-0.05" width="1.1" height="1.1" id="solid">
+                  <feFlood flood-color="white" result="bg" />
+                  <feMerge>
+                    <feMergeNode in="bg" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+            </svg>
+          </section>
+
+          <dialog id="image-map-point-description-dialog">
+            <main id="image-map-point-description-dialog-section">
+              <label
+                for="description"
+                id="image-map-point-description-dialog-input-label"
+                >Description</label
+              >
+              <input
+                id="image-map-point-description-dialog-input"
+                type="text"
+                name="description"
+                placeholder="Enter your description"
+              />
+            </main>
+            <footer id="image-map-point-description-dialog-footer">
+              <button
+                id="image-map-point-description-dialog-cancel-button"
+                class="button button-error"
+              >
+                Cancel
+              </button>
+              <button
+                id="image-map-point-description-dialog-save-button"
+                class="button button-success"
+              >
+                Save
+              </button>
+            </footer>
+          </dialog>
+
+          <section id="image-details">
+            <p id="image-details-image-name">
+              <span
+                id="image-details-image-name-label"
+                class="image-details-label"
+                >Image Name</span
+              >
+            </p>
+
+            <div>
+              <p id="image-details-mime-type">
+                <span
+                  id="image-details-mime-type-label"
+                  class="image-details-label"
+                  >MIME Type</span
+                >
+              </p>
+
+              <p id="image-details-dimensions">
+                <span
+                  id="image-details-dimensions-label"
+                  class="image-details-label"
+                  >Dimensions</span
+                >
+              </p>
+            </div>
+          </section>
+
+          <section id="points-table-container">
+            <table id="points-table">
+              <thead id="points-table-header">
+                <tr id="points-table-header-row">
+                  <th
+                    id="points-table-header-xpos-column"
+                    class="table-data-numbers"
+                  >
+                    X Pos
+                  </th>
+                  <th
+                    id="points-table-header-ypos-column"
+                    class="table-data-numbers"
+                  >
+                    Y Pos
+                  </th>
+                  <th id="poinst-table-header-description-column">
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="points-table-body"></tbody>
+            </table>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="image-mapper.js"></script>
+  </body>
+</html>

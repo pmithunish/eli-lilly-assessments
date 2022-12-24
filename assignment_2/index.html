@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assessment 2 - Stock Tracker</title>
+    <link rel="stylesheet" href="site.css" />
+  </head>
+
+  <body>
+    <main id="main">
+      <h1 id="title">Stock Tracker</h1>
+
+      <section id="stock-tracker-container" class="stock-tracker-container">
+        <div id="tick-input-section">
+          <h5>Enter a Stock Tick Symbol to track it.</h5>
+          <h6>IBM or MSFT are some of the valid Stock Tick Symbols.</h6>
+          <div class="form">
+            <input
+              type="text"
+              name="tickInput"
+              id="tick-input"
+              placeholder="IBM or MSFT"
+            />
+            <h6 id="tick-error" class="error"></h6>
+            <button id="track-tick-symbol-button" class="button button-success">
+              Track Tick Symbol
+            </button>
+          </div>
+        </div>
+
+        <section id="stock-tracker-section">
+          <section id="stock-tracker-line-graph-container">
+            <svg id="stock-tracker-line-graph">
+              <g id="stock-tracker-line"></g>
+              <g id="stock-tracker-tooltip"></g>
+              <g id="stock-tracker-tooltip-line"></g>
+              <g id="stock-tracker-y-axis-labels"></g>
+              <g id="stock-tracker-current-point"></g>
+            </svg>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="stock-tracker.js"></script>
+  </body>
+</html>
